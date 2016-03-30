@@ -26,12 +26,13 @@ class DisenioController < ApplicationController
   def create
     @disenio = Disenio.new(disenio_params2)
     if($disenio_nuevo == nil)
-      puts("- " + $proyecto_actual.nombre)
+      
       @proyecto = $proyecto_actual
       @empresa = $empresa_actual
-      puts("--- " + $proyecto_actual.nombre)
+      
       @disenio2 = $proyecto_actual.disenios.create(:nombre_diseniador => @disenio.nombre_diseniador ,:apellido_diseniador => @disenio.apellido_diseniador ,:estado => @disenio.estado ,:email_diseniador => @disenio.email_diseniador ,:precio_solicitado => @disenio.precio_solicitado)
       @disenio2.picture = "#{@disenio.picture.url}"
+      puts("------------- URL: " + @disenio2.picture)
       @disenio2.proyecto = $proyecto_actual
       if(@disenio2.save)
         #procesarImagen(@disenio, @disenio2)
