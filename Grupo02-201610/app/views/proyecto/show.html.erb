@@ -26,7 +26,7 @@
     <% num = 1 %>
     <% @disenios.each do |p| %>
         <tr>
-          
+
           <th scope=row><p><%= num %></p></th>
           <td><p><%= p.nombre_diseniador %> <%= p.apellido_diseniador%></p></td>
           <td><p><%= p.email_diseniador %></p></td>
@@ -53,7 +53,7 @@
     <% @disenios.each do |p| %>
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
-        <%= image_tag p.picture.url if p.picture? %>
+        <%= image_tag p.picture if p.picture? %>
         <div class="caption">
           <h3>Diseño <%= num %></h3>
           <p><h3>Fecha:</h3> <%= p.created_at %></p>
